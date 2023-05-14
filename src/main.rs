@@ -56,11 +56,11 @@ fn main() -> Result<(), AppError> {
                 .value_parser(value_parser!(PathBuf)),
         )
         .arg(
-            arg!(-n --new_value <NEW_VALUE> "New value to replace with default parameter values")
+            arg!(-n --new_value <NEW_VALUE> "New value to replace")
                 .default_value("1337"),
         )
-        .arg(arg!(-p --parameter <PARAMETER> "Parameter to replace display urls with this parameter, default all parameters"))
-        .arg(arg!(-r --report_errors "Report errors and exit the program default skip url parsing errors"))
+        .arg(arg!(-p --parameter <PARAMETER> "Parameter to replace; display urls with this parameter, default all parameters"))
+        .arg(arg!(-r --report_errors "Report errors and exit the program, default skip url parsing errors"))
         .get_matches();
 
     let file_path = matches.get_one::<PathBuf>("file").unwrap();
